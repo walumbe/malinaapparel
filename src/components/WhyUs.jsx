@@ -7,7 +7,7 @@ const REASONS = [
   { icon: BadgeCheck, title: 'Quality-focused production', text: 'Designs are prepared and produced with care so the finished item matches the approved proof.' },
   { icon: MessagesSquare, title: 'Reliable communication', text: 'Quick replies on WhatsApp and clear updates at every stage of your project.' },
   { icon: Target, title: 'Tailored to each brand', text: 'No recycled templates. Every solution is shaped around your business, audience and budget.' },
-  { icon: MapPin, title: 'Nakuru and beyond', text: 'Convenient for local clients, and easy to work with remotely if you are elsewhere in Kenya.' },
+  { icon: MapPin, title: 'Bungoma and beyond', text: 'Convenient for local clients, and easy to work with remotely if you are elsewhere in Kenya.' },
 ]
 
 export default function WhyUs() {

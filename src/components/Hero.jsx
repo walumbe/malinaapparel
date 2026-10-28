@@ -25,7 +25,7 @@ export default function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
             From logos and stationery to packaging, signage and merchandise, we help businesses build visual
-            identities people remember, designed in Nakuru and delivered wherever your customers are.
+            identities people remember, designed in Bungoma and delivered wherever your customers are.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a href="#contact" className="btn btn-accent">

@@ -6,7 +6,7 @@ export const SITE = {
   phoneHref: 'tel:+254797598616',
   whatsappNumber: '254797598616',
   whatsappMessage: "Hi, I'm interested in your branding services. I'd like to discuss a project.",
-  location: 'Nakuru, Kenya',
+  location: 'Bungoma, Kenya',
   // Optional: a Formspree / Getform / your own endpoint. Set VITE_FORM_ENDPOINT in .env
   formEndpoint: import.meta.env.VITE_FORM_ENDPOINT || '',
 }

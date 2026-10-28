@@ -1,4 +1,4 @@
-# Nakuru Brand Studio: branding agency website
+# Bungoma Brand Studio: branding agency website
 
 React + Vite + Tailwind CSS + Lucide icons. Fully responsive, no backend required.
 
@@ -30,7 +30,7 @@ Deploy the `dist/` folder to any static host (Netlify, Vercel, Cloudflare Pages,
 | Colours and fonts | `tailwind.config.js` |
 | Page title, description, social tags, schema | `index.html` |
 
-The business name "Nakuru Brand Studio" is a working name. Change `SITE.name` in `src/data/site.js`, plus the `<title>` and JSON-LD in `index.html`.
+The business name "Bungoma Brand Studio" is a working name. Change `SITE.name` in `src/data/site.js`, plus the `<title>` and JSON-LD in `index.html`.
 
 ## Replacing sample portfolio work with real projects
 

@@ -5,14 +5,14 @@ import Reveal from './Reveal'
 
 // Edit the copy below once the business story is available.
 const ABOUT = {
-  heading: 'Your creative branding partner in Nakuru.',
+  heading: 'Your creative branding partner in Bungoma.',
   paragraphs: [
     `${SITE.name} is a branding and creative design studio based in ${SITE.location}. We help businesses communicate who they are through professional, memorable visual branding.`,
     'Whether you are launching something new or refreshing an established business, we work with you to turn your ideas into logos, print, packaging, signage and merchandise that work together.',
   ],
   // Add real facts here when available, e.g. { label: 'Years in business', value: '5+' }
   facts: [
-    { label: 'Based in', value: 'Nakuru, Kenya' },
+    { label: 'Based in', value: 'Bungoma, Kenya' },
     { label: 'Focus', value: 'Visual branding' },
     { label: 'Contact', value: 'WhatsApp first' },
   ],

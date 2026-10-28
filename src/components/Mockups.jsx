@@ -126,7 +126,7 @@ export function Box({ p, name = 'Brand', mark = 0 }) {
       <polygon points="105,110 170,82 320,82 255,110" fill={p.alt} />
       <Mark kind={mark} p={{ ...p, accent: p.alt, fg: p.fg }} x={180} y={158} scale={0.5} />
       <text x="180" y="212" textAnchor="middle" fontSize="16" fontWeight="700" fill={p.alt}>{name}</text>
-      <text x="288" y="170" fontSize="9" fill={p.alt} transform="rotate(-20 288 170)" opacity=".7" letterSpacing="2">NAKURU</text>
+      <text x="288" y="170" fontSize="9" fill={p.alt} transform="rotate(-20 288 170)" opacity=".7" letterSpacing="2">Bungoma</text>
     </Frame>
   )
 }
