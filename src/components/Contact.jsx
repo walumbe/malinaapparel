@@ -63,7 +63,8 @@ export default function Contact() {
     const errs = validate(values)
     setErrors(errs)
     if (Object.keys(errs).length) {
-      document.getElementById(Object.keys(errs)[0])?.focus()
+      const first = Object.keys(errs)[0]
+      document.getElementById(first === 'contact' ? 'contact-details' : first)?.focus()
       return
     }
 
@@ -91,7 +92,7 @@ export default function Contact() {
 
   const aria = (k) => ({
     'aria-invalid': errors[k] ? 'true' : undefined,
-    'aria-describedby': errors[k] ? `${k}-error` : undefined,
+    'aria-describedby': errors[k] ? `${k === 'contact' ? 'contact-details' : k}-error` : undefined,
   })
   const border = (k) => (errors[k] ? 'border-red-600' : 'border-ink/20')
 
@@ -124,8 +125,8 @@ export default function Contact() {
             <Field id="name" label="Your name" error={errors.name}>
               <input id="name" name="name" type="text" autoComplete="name" value={values.name} onChange={set('name')} className={`${field} ${border('name')}`} placeholder="Jane Wanjiru" {...aria('name')} />
             </Field>
-            <Field id="contact" label="Phone number or email" error={errors.contact}>
-              <input id="contact" name="contact" type="text" inputMode="text" autoComplete="email tel" value={values.contact} onChange={set('contact')} className={`${field} ${border('contact')}`} placeholder="07XX XXX XXX or you@example.com" {...aria('contact')} />
+            <Field id="contact-details" label="Phone number or email" error={errors.contact}>
+              <input id="contact-details" name="contact" type="text" inputMode="text" autoComplete="email tel" value={values.contact} onChange={set('contact')} className={`${field} ${border('contact')}`} placeholder="07XX XXX XXX or you@example.com" {...aria('contact')} />
             </Field>
             <Field id="service" label="Service required" error={errors.service}>
               <select id="service" name="service" value={values.service} onChange={set('service')} className={`${field} ${border('service')}`} {...aria('service')}>

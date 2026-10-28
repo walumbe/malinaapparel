@@ -1,5 +1,6 @@
 import { Phone, MapPin, MessageCircle } from 'lucide-react'
 import { NAV_LINKS, SITE, waLink } from '../data/site'
+import { IMAGES } from '../data/images'
 import { Logo } from './Navbar'
 
 export default function Footer() {
@@ -30,9 +31,12 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <p className="container-x py-6 text-sm text-white/50">
-          &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
-        </p>
+        <div className="container-x space-y-2 py-6 text-sm text-white/50">
+          <p>&copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+          <p className="text-xs text-white/40">
+            Stock photography via Unsplash: {Object.values(IMAGES).map((i) => i.by).join(', ')}. Photos are for illustration and are not {SITE.name} projects.
+          </p>
+        </div>
       </div>
     </footer>
   )

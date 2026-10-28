@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 import { NAV_LINKS, SITE } from '../data/site'
-import { Mark } from './Mockups'
 
 export function Logo({ light = false }) {
-  const p = { accent: '#FF5A1F', fg: light ? '#FFFFFF' : '#0A0A0A', alt: light ? '#0A0A0A' : '#FFFFFF' }
   return (
-    <a href="#home" className="flex items-center gap-2.5" aria-label={`${SITE.name} — home`}>
-      <svg viewBox="-50 -50 100 100" className="h-8 w-8" aria-hidden="true">
-        <Mark kind={0} p={p} />
+    <a href="#home" className="flex items-center gap-2.5" aria-label={`${SITE.name} home`}>
+      <svg viewBox="0 0 64 64" className="h-9 w-9" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill={light ? '#FFFFFF' : '#0A0A0A'} />
+        <circle cx="32" cy="32" r="18" fill="#FF5A1F" />
+        <path d="M22 42 L32 20 L42 42 Z" fill={light ? '#0A0A0A' : '#FFFFFF'} />
       </svg>
       <span className={`font-display text-lg font-bold leading-none ${light ? 'text-white' : 'text-ink'}`}>
         {SITE.name}
@@ -46,12 +46,12 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-x flex h-16 items-center justify-between" aria-label="Main">
-        <Logo />
+        <Logo light={!(scrolled || open)} />
 
         <ul className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="text-sm font-medium text-ink/75 transition hover:text-ink">
+              <a href={l.href} className={`text-sm font-medium transition ${scrolled || open ? 'text-ink/75 hover:text-ink' : 'text-white/80 hover:text-white'}`}>
                 {l.label}
               </a>
             </li>
@@ -59,12 +59,12 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <a href="#contact" className="btn btn-dark hidden !py-2.5 sm:inline-flex">
+          <a href="#contact" className={`btn hidden !py-2.5 sm:inline-flex ${scrolled || open ? 'btn-dark' : 'btn-accent'}`}>
             Get a Quote <ArrowUpRight size={16} aria-hidden="true" />
           </a>
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 md:hidden"
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-full border md:hidden ${scrolled || open ? 'border-ink/15 text-ink' : 'border-white/30 text-white'}`}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="mobile-menu"

@@ -70,3 +70,7 @@
     transition: none;
   }
 }
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.fade-up { animation: fade-up 0.8s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .fade-up { animation: none; } }

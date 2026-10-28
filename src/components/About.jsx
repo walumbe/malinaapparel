@@ -1,6 +1,5 @@
 import { SITE } from '../data/site'
-import { PALETTES as P } from '../data/site'
-import { Cards, Sign, Box, Poster } from './Mockups'
+import Img from './Img'
 import Reveal from './Reveal'
 
 // Edit the copy below once the business story is available.
@@ -22,14 +21,14 @@ export default function About() {
   return (
     <section id="about" className="section-y bg-white">
       <div className="container-x grid items-center gap-14 lg:grid-cols-2">
-        <Reveal className="grid grid-cols-2 gap-4" aria-hidden="true">
+        <Reveal className="grid grid-cols-2 gap-4">
           <div className="space-y-4">
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink/10"><Poster p={P.yellow} name="Jamii" mark={1} /></div>
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink/10"><Cards p={P.paper} name="Kilele" mark={0} /></div>
+            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-ink"><Img name="tees" sizes="(min-width:1024px) 22vw, 45vw" /></div>
+            <div className="relative aspect-square overflow-hidden rounded-2xl bg-ink"><Img name="paper" sizes="(min-width:1024px) 22vw, 45vw" /></div>
           </div>
           <div className="mt-10 space-y-4">
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink/10"><Box p={P.dark} name="Nuru" mark={2} /></div>
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink/10"><Sign p={P.green} name="Savanna" mark={4} /></div>
+            <div className="relative aspect-square overflow-hidden rounded-2xl bg-ink"><Img name="neon" sizes="(min-width:1024px) 22vw, 45vw" /></div>
+            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-ink"><Img name="shirts" sizes="(min-width:1024px) 22vw, 45vw" /></div>
           </div>
         </Reveal>
 

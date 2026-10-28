@@ -1,12 +1,14 @@
 {
-  "name": "brand-studio",
+  "name": "malina-apparel",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "images:check": "node scripts/images.mjs check",
+    "images:download": "node scripts/images.mjs download"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

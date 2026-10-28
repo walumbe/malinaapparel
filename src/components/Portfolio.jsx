@@ -1,33 +1,29 @@
 import { useState } from 'react'
 import { CATEGORIES, PORTFOLIO } from '../data/portfolio'
-import { MOCKUPS } from './Mockups'
+import Img from './Img'
 import Reveal from './Reveal'
 
 function WorkImage({ item }) {
-  if (item.image) {
+  if (item.photo) {
     return (
       <img
-        src={item.image}
+        src={item.photo}
         alt={item.title}
         loading="lazy"
         decoding="async"
         width="1200"
         height="900"
-        className="h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
       />
     )
   }
-  const M = MOCKUPS[item.mockup]
-  return (
-    <div role="img" aria-label={`${item.title} (sample concept)`} className="h-full w-full">
-      <M p={item.palette} name={item.name} mark={item.mark} />
-    </div>
-  )
+  return <Img name={item.image} alt={`${item.title} (illustrative stock photo)`} sizes="(min-width:1024px) 30vw, (min-width:640px) 45vw, 100vw" />
 }
 
 export default function Portfolio() {
   const [active, setActive] = useState('All')
   const items = active === 'All' ? PORTFOLIO : PORTFOLIO.filter((i) => i.category === active)
+  const anyIllustrative = items.some((i) => !i.real)
 
   return (
     <section id="portfolio" className="section-y bg-white">
@@ -57,29 +53,32 @@ export default function Portfolio() {
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite">
           {items.map((item) => (
             <li key={item.id}>
-              <figure className="group overflow-hidden rounded-3xl ring-1 ring-ink/10">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <div className="h-full w-full transition duration-500 group-hover:scale-105">
+              <figure className="group overflow-hidden rounded-2xl ring-1 ring-ink/10">
+                <div className="relative aspect-[4/3] overflow-hidden bg-ink">
+                  <div className="absolute inset-0 transition duration-700 group-hover:scale-105">
                     <WorkImage item={item} />
                   </div>
-                  {item.isSample && (
-                    <span className="absolute left-3 top-3 rounded-full bg-ink/85 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
-                      Sample concept
+                  {!item.real && (
+                    <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-ink">
+                      Illustrative photo
                     </span>
                   )}
                 </div>
-                <figcaption className="flex items-center justify-between bg-white px-5 py-4">
+                <figcaption className="flex items-center justify-between gap-3 bg-white px-5 py-4">
                   <span className="font-semibold">{item.title}</span>
-                  <span className="text-sm text-ink/60">{item.category}</span>
+                  <span className="shrink-0 text-sm text-ink/60">{item.category}</span>
                 </figcaption>
               </figure>
             </li>
           ))}
         </ul>
 
-        <p className="mt-8 text-sm text-ink/60">
-          Designs marked &ldquo;Sample concept&rdquo; are illustrative mockups, not completed client projects.
-        </p>
+        {anyIllustrative && (
+          <p className="mt-8 text-sm text-ink/60">
+            Photos marked &ldquo;Illustrative photo&rdquo; are licensed stock images that show the kind of work we offer.
+            They are not completed client projects. Real project photos will be added as they are published.
+          </p>
+        )}
       </div>
     </section>
   )

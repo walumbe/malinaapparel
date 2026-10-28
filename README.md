@@ -1,4 +1,4 @@
-# Bungoma Brand Studio: branding agency website
+# Malina Apparel: apparel & branding website
 
 React + Vite + Tailwind CSS + Lucide icons. Fully responsive, no backend required.
 
@@ -32,29 +32,26 @@ Deploy the `dist/` folder to any static host (Netlify, Vercel, Cloudflare Pages,
 
 The business name "Bungoma Brand Studio" is a working name. Change `SITE.name` in `src/data/site.js`, plus the `<title>` and JSON-LD in `index.html`.
 
-## Replacing sample portfolio work with real projects
+## Photography (read before launch)
 
-Every portfolio tile is currently a drawn **sample concept** (shown with a badge), not client work.
-To use real photos: put images (4:3, e.g. 1200x900) in `public/work/`, then in `src/data/portfolio.js` set
-`image: '/work/my-project.jpg'` and `isSample: false` on that item. The badge disappears automatically.
+All photos are **real photographs from Unsplash** under the free Unsplash License (commercial use allowed). The
+licence type was checked on each photo's page. They are stock images that illustrate the services; the site labels
+them "Illustrative photo" and credits the photographers in the footer. They are not Malina Apparel's own work.
+IDs live in `src/data/images.js`.
 
-## Contact form
+1. `npm run images:check` confirms every photo URL resolves from your computer. Swap any that fail.
+2. `npm run images:download` saves them to `public/images/`. Commit them and set `VITE_SELF_HOSTED_IMAGES=true`
+   (in `.env` locally, and in Vercel's Environment Variables) so the site never depends on Unsplash being up.
+3. If a photo fails to load, the site shows a plain dark panel instead of a broken icon.
 
-The form validates name, phone/email, service and details.
+## Replacing stock photos with real client work
 
-- **Default (no setup):** submitting opens WhatsApp with the inquiry pre-filled. The site tells the visitor to press Send there, since nothing is delivered until they do.
-- **Real form submissions:** create a free endpoint (e.g. Formspree), copy `.env.example` to `.env` and set `VITE_FORM_ENDPOINT=https://formspree.io/f/xxxx`. The form then POSTs JSON and only shows success when the service confirms.
+Put your own photos (4:3, e.g. 1200x900) in `public/work/`, then add an item in `src/data/portfolio.js` with
+`photo: '/work/my-job.jpg'` and `real: true`. The "Illustrative photo" label disappears for that item.
+To replace a stock photo used elsewhere (hero, services, about), upload yours to `public/images/` using the same
+filename as the key (e.g. `hero.jpg`) and set `VITE_SELF_HOSTED_IMAGES=true`.
 
-## Structure
-
-```
-src/
-  data/        site.js (business info), portfolio.js (projects)
-  components/  Navbar, Hero, Services, Portfolio, WhyUs, Process,
-               CtaBanner, About, Contact, Footer, WhatsAppFloat,
-               Reveal (scroll animation), Mockups (SVG branding imagery)
-```
-
-## About the images
-
-All imagery is original inline SVG (logos, cards, packaging, tees, mugs, bags, signage, posters, social packs, labels): fast, sharp at any size and zero layout shift. Swap in real photography via the portfolio file above.
+## Deploy to Vercel
+Push to GitHub, import the repo in Vercel (framework: Vite, build `npm run build`, output `dist`). Add
+`VITE_SELF_HOSTED_IMAGES=true` once images are committed, and `VITE_FORM_ENDPOINT` (e.g. a Formspree URL) to make
+the contact form deliver by email. Without it the form opens WhatsApp with the details filled in.
