@@ -33,9 +33,9 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-x space-y-2 py-6 text-sm text-white/50">
           <p>&copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
-          <p className="text-xs text-white/40">
+          {/* <p className="text-xs text-white/40">
             Stock photography via Unsplash: {Object.values(IMAGES).map((i) => i.by).join(', ')}. Photos are for illustration and are not {SITE.name} projects.
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>
